@@ -21,7 +21,7 @@ export function header(current) {
     <div class="container header-inner">
       <a class="header-wordmark" href="/" aria-label="Okasha Properties home"><span class="brand-mark" aria-hidden="true">O<span>P</span></span><span class="header-brand-name">Okasha Properties<span class="brand-period">.</span></span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
-      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">${nav.filter(([, href]) => href !== '/contact/').map(([label, href]) => `<a href="${href}"${current === href || (href === '/properties/' && current.startsWith('/properties/')) || (href === '/blog/' && current.startsWith('/blog/')) ? ' aria-current="page"' : ''}>${label === 'About' ? 'About Us' : label}</a>`).join('')}<a class="nav-contact" href="/contact/"${current === '/contact/' ? ' aria-current="page"' : ''}>Contact Us</a></nav><div class="header-actions"><a class="header-cta" href="/contact/"${current === '/contact/' ? ' aria-current="page"' : ''}>Contact Us</a></div>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">${nav.filter(([, href]) => href !== '/contact/').map(([label, href]) => `<a href="${href}"${current === href || (href === '/properties/' && current.startsWith('/properties/')) || (href === '/blog/' && current.startsWith('/blog/')) ? ' aria-current="page"' : ''}>${label === 'About' ? 'About Us' : label}</a>`).join('')}<a class="nav-contact" href="/contact/"${current === '/contact/' ? ' aria-current="page"' : ''}>Contact Us</a><div class="mobile-nav-meta"><div><strong>Property enquiries</strong><a href="mailto:${escapeHtml(site.email)}">${escapeHtml(site.email)}</a></div><div><strong>Office</strong><address>${escapeHtml(site.location)}</address></div></div></nav><div class="header-actions"><a class="header-cta" href="/contact/"${current === '/contact/' ? ' aria-current="page"' : ''}>Contact Us</a></div>
     </div>
   </header>`;
 }
@@ -148,7 +148,7 @@ function contactForm() {
 }
 
 export function propertyHeader({ title, description, eyebrow = 'Properties · Rawalpindi', showCategories = true, showBack = true }) {
-  return `<section class="property-page-hero"><img class="property-page-hero-image" src="/home-hero-future.png" alt="Contemporary architectural setting" fetchpriority="high"><div class="property-page-hero-overlay" aria-hidden="true"></div><div class="container property-page-hero-center"><p class="eyebrow">${escapeHtml(eyebrow)}</p><h1>${escapeHtml(title)}</h1><p>${escapeHtml(description)}</p>${showBack ? goBackButton() : ''}</div>${showCategories ? categoryNavigation() : ''}</section>`;
+  return `${pageHero({ eyebrow, title, description, showBack })}${showCategories ? categoryNavigation() : ''}`;
 }
 
 export function categoryNavigation() {
