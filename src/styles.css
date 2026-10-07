@@ -192,7 +192,7 @@
 .home-hero~.listings-section{padding-top:60px}
 .home-message-grid{display:grid;grid-template-columns:minmax(150px,.22fr) minmax(0,1fr);gap:clamp(26px,3.5vw,48px);align-items:start}
 .home-message .home-message-label{max-width:none;margin:4px 0 0;color:#202729;font-size:.9rem;line-height:1.4;letter-spacing:0;white-space:nowrap}
-.home-message-label::before{content:'•';margin-right:7px}
+.home-message-label::before{content:'';display:inline-block;width:4px;height:4px;margin:0 7px 2px 0;border-radius:50%;background:currentColor}
 .home-message-content{min-width:0}
 .home-message-content>p[data-reveal-copy]{max-width:810px;margin:0;color:#526064;font-size:clamp(1.4rem,2.35vw,1.9rem);line-height:1.36;letter-spacing:-.035em}
 .home-message-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:700px;margin-top:26px}
@@ -1597,6 +1597,23 @@ button:not(.visual-story-card):not(.blog-card-media),
  .contact-route-house{right:-33%;bottom:1px;width:140%}
 }
 @media(max-width:340px){.contact-route-panel{min-height:600px;padding-inline:19px}.contact-route-house{right:-38%;width:148%}}
+
+/* Shared monochrome SVG icon system. */
+.ui-icon{display:inline-block;width:1em;height:1em;flex:none;vertical-align:-.125em}
+button>.ui-icon{width:1.05em;height:1.05em}
+.home-about-icon .ui-icon{width:18px;height:18px}
+.footer-main a .ui-icon,.reel-card-kicker .ui-icon{width:.9em;height:.9em}
+.blog-back-link{display:inline-flex;align-items:center;gap:8px}
+.sitemap-list b .ui-icon{width:1rem;height:1rem}
+.testimonial-stars{display:flex;align-items:center;gap:2px}
+.testimonial-stars .ui-icon{width:.82rem;height:.82rem}
+:is(.listings-arrows button,.visual-stories-arrow,.visual-story-dialog-arrow,.reels-prev,.reels-next,.property-pagination button) .ui-icon{width:18px;height:18px}
+.visual-story-close .ui-icon,.blog-reader-close .ui-icon{width:18px;height:18px}
+.property-filter-toggle-icon{position:relative;display:grid;place-items:center;width:1em;height:1em}
+.property-filter-toggle-icon>span{grid-area:1/1;display:grid;place-items:center;transition:opacity .2s ease,transform .2s ease}
+.property-filter-toggle-icon .filter-icon-minus{opacity:0;transform:rotate(-45deg)}
+.property-filter-toggle.is-open .filter-icon-plus{opacity:0;transform:rotate(45deg)}
+.property-filter-toggle.is-open .filter-icon-minus{opacity:1;transform:none}
 
 
 

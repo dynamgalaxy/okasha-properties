@@ -604,7 +604,7 @@ if (propertyFilterToggle && propertyFilters) {
   propertyFilterToggle.addEventListener('click', () => {
     const open = propertyFilters.classList.toggle('is-open');
     propertyFilterToggle.setAttribute('aria-expanded', String(open));
-    propertyFilterToggle.querySelector('span').textContent = open ? '−' : '＋';
+    propertyFilterToggle.classList.toggle('is-open', open);
   });
 }
 
@@ -671,6 +671,7 @@ if (propertyGrid) {
     applyPropertyFilters();
     filtersForm.classList.remove('is-open');
     propertyFilterToggle?.setAttribute('aria-expanded', 'false');
+    propertyFilterToggle?.classList.remove('is-open');
   });
   reset?.addEventListener('click', (event) => {
     event.preventDefault();
